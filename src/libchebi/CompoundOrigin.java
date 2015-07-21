@@ -73,13 +73,8 @@ public class CompoundOrigin
 	{
 		assert speciesText != null;
 		assert speciesAccession != null;
-		assert componentText != null;
-		assert componentAccession != null;
-		assert strainText != null;
-		assert strainAccession != null;
 		assert sourceType != null;
 		assert sourceAccession != null;
-		assert comments != null;
 		
 		final String NULL = "null"; //$NON-NLS-1$
 

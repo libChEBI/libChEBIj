@@ -9,7 +9,9 @@ package libchebi;
 
 import java.io.*;
 import java.text.*;
+
 import libchebi.Relation.*;
+
 import org.junit.*;
 
 /**

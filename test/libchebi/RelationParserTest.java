@@ -26,7 +26,7 @@ public class RelationParserTest
 	public void getOutgoingsSize() throws IOException, ParseException
 	{
 		final int id = 4167;
-		final int size = 3;
+		final int size = 2;
 		Assert.assertTrue( size < RelationParser.getInstance().getOutgoings( id ).size() );
 	}
 	
