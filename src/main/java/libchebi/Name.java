@@ -16,17 +16,17 @@ public class Name extends SourcedData
 	 * 
 	 */
 	private final String name;
-	
+
 	/**
 	 * 
 	 */
 	private final String type;
-	
+
 	/**
 	 * 
 	 */
 	private final boolean adapted;
-	
+
 	/**
 	 * 
 	 */
@@ -43,7 +43,7 @@ public class Name extends SourcedData
 	Name( final String name, final String type, final String source, final boolean adapted, final String language )
 	{
 		super( source );
-		
+
 		assert name != null;
 		assert type != null;
 		assert source != null;
@@ -86,9 +86,10 @@ public class Name extends SourcedData
 	{
 		return language;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -97,8 +98,9 @@ public class Name extends SourcedData
 		return type + "\t" + source + "\t" + name + "\t" + adapted + "\t" + language; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -113,8 +115,9 @@ public class Name extends SourcedData
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -132,29 +135,29 @@ public class Name extends SourcedData
 		{
 			return false;
 		}
-		
+
 		final Name other = (Name)obj;
-		
+
 		if( adapted != other.adapted )
 		{
 			return false;
 		}
-		
+
 		if( !language.equals( other.language ) )
 		{
 			return false;
 		}
-		
+
 		if( !name.equals( other.name ) )
 		{
 			return false;
 		}
-		
+
 		if( !type.equals( other.type ) )
 		{
 			return false;
 		}
-		
+
 		return super.equals( other );
 	}
 }

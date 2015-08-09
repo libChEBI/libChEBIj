@@ -18,7 +18,7 @@ import org.junit.*;
 public class RelationParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -29,9 +29,9 @@ public class RelationParserTest
 		final int size = 2;
 		Assert.assertTrue( size < RelationParser.getInstance().getOutgoings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -42,9 +42,9 @@ public class RelationParserTest
 		final int size = 19;
 		Assert.assertTrue( size < RelationParser.getInstance().getIncomings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -55,9 +55,9 @@ public class RelationParserTest
 		final int size = 0;
 		Assert.assertTrue( size == RelationParser.getInstance().getOutgoings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -68,9 +68,9 @@ public class RelationParserTest
 		final int size = 0;
 		Assert.assertTrue( size == RelationParser.getInstance().getIncomings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -81,9 +81,9 @@ public class RelationParserTest
 		final int size = 0;
 		Assert.assertTrue( size == RelationParser.getInstance().getOutgoings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -94,9 +94,9 @@ public class RelationParserTest
 		final int size = 0;
 		Assert.assertTrue( size == RelationParser.getInstance().getIncomings( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -106,9 +106,9 @@ public class RelationParserTest
 		final int id = 4167;
 		Assert.assertTrue( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 17634, "C" ) ) ); //$NON-NLS-1$
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -118,9 +118,9 @@ public class RelationParserTest
 		final int id = 4167;
 		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_conjugate_acid_of, 17634, "C" ) ) ); //$NON-NLS-1$
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -130,9 +130,9 @@ public class RelationParserTest
 		final int id = 4167;
 		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 1111, "C" ) ) ); //$NON-NLS-1$
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -142,9 +142,9 @@ public class RelationParserTest
 		final int id = 4167;
 		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 17634, "ZZZ" ) ) ); //$NON-NLS-1$
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

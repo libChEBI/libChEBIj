@@ -26,7 +26,7 @@ public class ReferenceParserTest
 		final int size = 100;
 		Assert.assertTrue( size < ReferenceParser.getInstance().getReferences( new int[] { id } ).size() );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -38,7 +38,7 @@ public class ReferenceParserTest
 		final int size = 0;
 		Assert.assertEquals( size, ReferenceParser.getInstance().getReferences( new int[] { id } ).size() );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -50,8 +50,8 @@ public class ReferenceParserTest
 		final int size = 0;
 		Assert.assertEquals( size, ReferenceParser.getInstance().getReferences( new int[] { id } ).size() );
 	}
-	
-	/** 
+
+	/**
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -62,7 +62,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "O13340", "UniProt", "CC - INDUCTION", "Podosporapepsin" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertTrue( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -74,7 +74,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "Random id", "UniProt", "CC - INDUCTION", "Podosporapepsin" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -86,7 +86,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "O13340", "Random db name", "CC - INDUCTION", "Podosporapepsin" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -98,7 +98,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "O13340", "UniProt", "Random location in ref", "Podosporapepsin" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -110,7 +110,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "O13340", "UniProt", "CC - INDUCTION", "Random reference name" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -122,7 +122,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "49658669", "PubChem" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertTrue( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -134,7 +134,7 @@ public class ReferenceParserTest
 		final Reference reference = new Reference( "Random reference id", "PubChem" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */

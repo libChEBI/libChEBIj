@@ -19,17 +19,18 @@ class ParserUtils
 	 * 
 	 */
 	private static final DateFormat dateFormat = new SimpleDateFormat( "yyyy-MM-dd", Locale.ENGLISH ); //$NON-NLS-1$
-	
+
 	/**
 	 * 
 	 * @param date
 	 * @return parsed Date object
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	static Date parseDate( final String date ) throws ParseException
 	{
 		return dateFormat.parse( date );
 	}
+
 	/**
 	 * 
 	 * @param map
@@ -40,15 +41,15 @@ class ParserUtils
 		final int lastIndex = map.lastKey().intValue();
 		final float[] array = new float[ lastIndex + 1 ];
 		Arrays.fill( array, ChebiEntity.UNDEFINED_VALUE );
-		
+
 		for( Map.Entry<Integer,Float> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue().floatValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -59,15 +60,15 @@ class ParserUtils
 		final int lastIndex = map.lastKey().intValue();
 		final int[] array = new int[ lastIndex + 1 ];
 		Arrays.fill( array, ChebiEntity.UNDEFINED_VALUE );
-		
+
 		for( Map.Entry<Integer,Integer> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue().intValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -78,15 +79,15 @@ class ParserUtils
 		final int lastIndex = map.lastKey().intValue();
 		final short[] array = new short[ lastIndex + 1 ];
 		Arrays.fill( array, ChebiEntity.UNDEFINED_VALUE );
-		
+
 		for( Map.Entry<Integer,Short> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue().shortValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -96,15 +97,15 @@ class ParserUtils
 	{
 		final int lastIndex = map.lastKey().intValue();
 		final String[] array = new String[ lastIndex + 1 ];
-		
+
 		for( Map.Entry<Integer,String> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -114,15 +115,15 @@ class ParserUtils
 	{
 		final int lastIndex = map.lastKey().intValue();
 		final Date[] array = new Date[ lastIndex + 1 ];
-		
+
 		for( Map.Entry<Integer,Date> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -132,15 +133,15 @@ class ParserUtils
 	{
 		final int lastIndex = map.lastKey().intValue();
 		final Structure[] array = new Structure[ lastIndex + 1 ];
-		
+
 		for( Map.Entry<Integer,Structure> entry : map.entrySet() )
 		{
 			array[ entry.getKey().intValue() ] = entry.getValue();
 		}
-		
+
 		return array;
 	}
-	
+
 	/**
 	 * 
 	 * @param map
@@ -151,20 +152,20 @@ class ParserUtils
 		final int lastIndex = map.lastKey().intValue();
 		final int capacity = lastIndex + 1;
 		final int[][] array = new int[ capacity ][];
-		
+
 		for( Map.Entry<Integer,List<Integer>> entry : map.entrySet() )
 		{
-			final int i = entry.getKey().intValue(); 
+			final int i = entry.getKey().intValue();
 			final List<Integer> values = entry.getValue();
-			
+
 			array[ i ] = new int[ values.size() ];
-			
+
 			for( int j = 0; j < values.size(); j++ )
 			{
 				array[ i ][ j ] = values.get( j ).intValue();
 			}
 		}
-		
+
 		return array;
 	}
 
@@ -178,20 +179,20 @@ class ParserUtils
 		final int lastIndex = map.lastKey().intValue();
 		final int capacity = lastIndex + 1;
 		final List<List<T>> list = new ArrayList<>( capacity );
-		
+
 		for( int i = 0; i < capacity; i++ )
 		{
 			list.add( new ArrayList<T>() );
 		}
-		
+
 		for( Map.Entry<Integer,List<T>> entry : map.entrySet() )
 		{
 			list.set( entry.getKey().intValue(), entry.getValue() );
 		}
-		
+
 		return list;
 	}
-	
+
 	/**
 	 * 
 	 * @param id
@@ -201,13 +202,13 @@ class ParserUtils
 	static <T> void add( final Integer id, final TreeMap<Integer,List<T>> map, T object )
 	{
 		List<T> list = map.get( id );
-		
+
 		if( list == null )
 		{
 			list = new ArrayList<>();
 			map.put( id, list );
 		}
-		
+
 		list.add( object );
 	}
 }

@@ -17,24 +17,24 @@ class MolTestUtils
 	/**
 	 * 
 	 * @return String
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	static String readMol( final int id ) throws IOException
 	{
 		return readMol( MolTestUtils.class.getResourceAsStream( "ChEBI_" + id + ".mol" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
-	
+
 	/**
 	 * 
 	 * @return String
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	static String readMol( final InputStream is ) throws IOException
 	{
 		final String LINE_SEPARATOR = System.getProperty( "line.separator" ); //$NON-NLS-1$
 		final StringBuilder stringBuilder = new StringBuilder();
 		BufferedReader reader = null;
-		
+
 		try
 		{
 			reader = new BufferedReader( new InputStreamReader( is ) );
@@ -45,7 +45,7 @@ class MolTestUtils
 				stringBuilder.append( line );
 				stringBuilder.append( LINE_SEPARATOR );
 			}
-			
+
 			return stringBuilder.toString();
 		}
 		finally

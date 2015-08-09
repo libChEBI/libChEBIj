@@ -16,7 +16,7 @@ public class Formula extends SourcedData
 	 * 
 	 */
 	private final String formula;
-	
+
 	/**
 	 * 
 	 * @param formula
@@ -25,7 +25,7 @@ public class Formula extends SourcedData
 	Formula( final String formula, final String source )
 	{
 		super( source );
-		
+
 		assert formula != null;
 
 		this.formula = formula;
@@ -38,9 +38,10 @@ public class Formula extends SourcedData
 	{
 		return formula;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -49,8 +50,9 @@ public class Formula extends SourcedData
 		return source + "\t" + formula; //$NON-NLS-1$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -62,8 +64,9 @@ public class Formula extends SourcedData
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -73,24 +76,24 @@ public class Formula extends SourcedData
 		{
 			return true;
 		}
-		
+
 		if( obj == null )
 		{
 			return false;
 		}
-		
+
 		if( !( obj instanceof Formula ) )
 		{
 			return false;
 		}
-		
+
 		final Formula other = (Formula)obj;
-		
+
 		if( !formula.equals( other.formula ) )
 		{
 			return false;
 		}
-		
+
 		return super.equals( other );
 	}
 }

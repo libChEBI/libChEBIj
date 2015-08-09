@@ -16,22 +16,22 @@ public class Reference
 	 * 
 	 */
 	private final String referenceId;
-	
+
 	/**
 	 * 
 	 */
 	private final String referenceDbName;
-	
+
 	/**
 	 * 
 	 */
 	private final String locationInRef;
-	
+
 	/**
 	 * 
 	 */
 	private final String referenceName;
-	
+
 	/**
 	 * 
 	 * @param referenceId
@@ -43,7 +43,7 @@ public class Reference
 	{
 		assert referenceId != null;
 		assert referenceDbName != null;
-		
+
 		this.referenceId = referenceId;
 		this.referenceDbName = referenceDbName;
 		this.locationInRef = locationInRef;
@@ -91,9 +91,10 @@ public class Reference
 	{
 		return referenceName;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -102,8 +103,9 @@ public class Reference
 		return referenceId + "\t" + referenceDbName + "\t" + locationInRef + "\t" + referenceName; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -118,8 +120,9 @@ public class Reference
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -129,7 +132,7 @@ public class Reference
 		{
 			return true;
 		}
-		if ( obj == null )
+		if( obj == null )
 		{
 			return false;
 		}
@@ -137,19 +140,19 @@ public class Reference
 		{
 			return false;
 		}
-		
+
 		final Reference other = (Reference)obj;
-		
-		if (!referenceId.equals( other.referenceId ))
+
+		if( !referenceId.equals( other.referenceId ) )
 		{
 			return false;
 		}
-		
+
 		if( !referenceDbName.equals( other.referenceDbName ) )
 		{
 			return false;
 		}
-		
+
 		if( locationInRef == null )
 		{
 			if( other.locationInRef != null )
@@ -161,7 +164,7 @@ public class Reference
 		{
 			return false;
 		}
-		
+
 		if( referenceName == null )
 		{
 			if( other.referenceName != null )
@@ -169,11 +172,11 @@ public class Reference
 				return false;
 			}
 		}
-		else if (!referenceName.equals( other.referenceName ))
+		else if( !referenceName.equals( other.referenceName ) )
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 }

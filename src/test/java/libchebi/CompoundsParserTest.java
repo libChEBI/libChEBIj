@@ -17,7 +17,7 @@ import org.junit.*;
 public class CompoundsParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class CompoundsParserTest
 		final String status = "C"; //$NON-NLS-1$
 		Assert.assertEquals( status, CompoundsParser.getInstance().getStatus( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -40,9 +40,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getStatus( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -53,9 +53,9 @@ public class CompoundsParserTest
 		final String source = "ChEMBL"; //$NON-NLS-1$
 		Assert.assertEquals( source, CompoundsParser.getInstance().getSource( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -65,9 +65,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getSource( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -78,9 +78,9 @@ public class CompoundsParserTest
 		final int parentId = 34107;
 		Assert.assertEquals( parentId, CompoundsParser.getInstance().getParentId( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -91,9 +91,9 @@ public class CompoundsParserTest
 		final int parentId = ChebiEntity.UNDEFINED_VALUE;
 		Assert.assertEquals( parentId, CompoundsParser.getInstance().getParentId( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -104,9 +104,9 @@ public class CompoundsParserTest
 		final int parentId = ChebiEntity.UNDEFINED_VALUE;
 		Assert.assertEquals( parentId, CompoundsParser.getInstance().getParentId( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -117,9 +117,9 @@ public class CompoundsParserTest
 		final String name = "3-(1H-indol-3-yl)-4-{1-[(2R)-2-(1-methylpyrrolidin-2-yl)ethyl]-1H-indol-3-yl}-1H-pyrrole-2,5-dione"; //$NON-NLS-1$
 		Assert.assertEquals( name, CompoundsParser.getInstance().getName( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -129,9 +129,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getName( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -141,9 +141,9 @@ public class CompoundsParserTest
 		final int id = 7483;
 		Assert.assertNull( CompoundsParser.getInstance().getName( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -154,9 +154,9 @@ public class CompoundsParserTest
 		final String definition = "A glycerophosphocholine having an unspecified acyl group attached at the 2-position."; //$NON-NLS-1$
 		Assert.assertEquals( definition, CompoundsParser.getInstance().getDefinition( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -166,9 +166,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getDefinition( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -178,9 +178,9 @@ public class CompoundsParserTest
 		final int id = 18945;
 		Assert.assertNull( CompoundsParser.getInstance().getDefinition( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -190,9 +190,9 @@ public class CompoundsParserTest
 		final int id = 57857;
 		Assert.assertTrue( CompoundsParser.getInstance().getModifiedOn( id ).after( ParserUtils.parseDate( "2014-01-01" ) ) ); //$NON-NLS-1$
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -202,9 +202,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getModifiedOn( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -214,9 +214,9 @@ public class CompoundsParserTest
 		final int id = 6981;
 		Assert.assertNull( CompoundsParser.getInstance().getModifiedOn( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -227,9 +227,9 @@ public class CompoundsParserTest
 		final String createdBy = "CHEBI"; //$NON-NLS-1$
 		Assert.assertEquals( createdBy, CompoundsParser.getInstance().getCreatedBy( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -239,9 +239,9 @@ public class CompoundsParserTest
 		final int id = -1;
 		Assert.assertEquals( null, CompoundsParser.getInstance().getCreatedBy( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -252,9 +252,9 @@ public class CompoundsParserTest
 		final int star = 3;
 		Assert.assertEquals( star, CompoundsParser.getInstance().getStar( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

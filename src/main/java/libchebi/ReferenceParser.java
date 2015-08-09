@@ -20,16 +20,16 @@ class ReferenceParser
 	 * 
 	 */
 	private static ReferenceParser parser;
-	
+
 	/**
 	 * 
 	 */
 	private final File file;
-	
+
 	/**
 	 * 
 	 * @return singleton ReferenceParser
-	 * @throws IOException  
+	 * @throws IOException
 	 */
 	synchronized static ReferenceParser getInstance() throws IOException
 	{
@@ -38,10 +38,10 @@ class ReferenceParser
 			final File file = Downloader.getInstance().getFile( "reference.tsv.gz" ); //$NON-NLS-1$
 			parser = new ReferenceParser( file );
 		}
-		
+
 		return parser;
 	}
-	
+
 	/**
 	 * 
 	 * @param file
@@ -56,7 +56,7 @@ class ReferenceParser
 	 * @param chebiId
 	 * @return references
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	synchronized List<Reference> getReferences( final int[] chebiIds ) throws IOException
 	{
@@ -65,21 +65,21 @@ class ReferenceParser
 		final int REFERENCE_DB_NAME = 2;
 		final int LOCATION_IN_REF = 3;
 		final int REFERENCE_NAME = 4;
-		
+
 		final List<Reference> references = new ArrayList<>();
-		
-		try( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
+
+		try ( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
 		{
 			String line = reader.readLine(); // Read header
-				
+
 			while( ( line = reader.readLine() ) != null )
 			{
 				final String[] tokens = line.split( "\\t" ); //$NON-NLS-1$
-				
+
 				if( line.length() > 0 )
 				{
 					final int id = Integer.parseInt( tokens[ COMPOUND_ID ] );
-					
+
 					for( int chebiId : chebiIds )
 					{
 						if( id == chebiId )
@@ -90,7 +90,7 @@ class ReferenceParser
 				}
 			}
 		}
-		
+
 		return references;
 	}
 }

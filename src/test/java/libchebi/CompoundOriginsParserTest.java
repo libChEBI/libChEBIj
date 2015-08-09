@@ -17,7 +17,7 @@ import org.junit.*;
 public class CompoundOriginsParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class CompoundOriginsParserTest
 		final int size = 4;
 		Assert.assertTrue( size < CompoundOriginsParser.getInstance().getCompoundOrigins( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -41,9 +41,9 @@ public class CompoundOriginsParserTest
 		final int size = 0;
 		Assert.assertEquals( size, CompoundOriginsParser.getInstance().getCompoundOrigins( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -54,9 +54,9 @@ public class CompoundOriginsParserTest
 		final int size = 0;
 		Assert.assertEquals( size, CompoundOriginsParser.getInstance().getCompoundOrigins( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -67,9 +67,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:0001436", "74 OR23 1", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertTrue( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -80,9 +80,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Homo sapiens", "NCBI:5141", "mycelium", "BTO:0001436", "74 OR23 1", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -93,9 +93,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:123456789", "mycelium", "BTO:0001436", "74 OR23 1", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -106,9 +106,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "glucose", "BTO:0001436", "74 OR23 1", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -119,9 +119,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:000123456", "74 OR23 1", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -132,9 +132,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:0001436", "Strain 007", null, "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -145,9 +145,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:0001436", "74 OR23 1", "STRAIN:12345", "PubMed Id", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -158,9 +158,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:0001436", "74 OR23 1", null, "Hello! Magazine", "21425845", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -171,9 +171,9 @@ public class CompoundOriginsParserTest
 		final CompoundOrigin compoundOrigin = new CompoundOrigin( "Neurospora crassa", "NCBI:5141", "mycelium", "BTO:0001436", "74 OR23 1", null, "PubMed Id", "123456789", "Lyophilized mycelia extracted with mixture of methanol and chloroform" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 		Assert.assertFalse( CompoundOriginsParser.getInstance().getCompoundOrigins( id ).contains( compoundOrigin ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

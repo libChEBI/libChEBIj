@@ -20,16 +20,16 @@ class CommentsParser extends FileParser
 	 * 
 	 */
 	private static CommentsParser parser;
-	
+
 	/**
 	 * 
 	 */
 	private List<List<Comment>> comments;
-	
+
 	/**
 	 * 
 	 * @return singleton CommentsParser
-	 * @throws IOException  
+	 * @throws IOException
 	 */
 	synchronized static CommentsParser getInstance() throws IOException
 	{
@@ -38,10 +38,10 @@ class CommentsParser extends FileParser
 			final File file = Downloader.getInstance().getFile( "comments.tsv" ); //$NON-NLS-1$
 			parser = new CommentsParser( file );
 		}
-		
+
 		return parser;
 	}
-	
+
 	/**
 	 * 
 	 * @param file
@@ -56,13 +56,13 @@ class CommentsParser extends FileParser
 	 * @param chebiId
 	 * @return comments
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	synchronized List<Comment> getComments( final int chebiId ) throws IOException, ParseException
 	{
 		return chebiId > -1 && chebiId < getComments().size() ? comments.get( chebiId ) : new ArrayList<Comment>();
 	}
-	
+
 	/**
 	 * 
 	 * @param chebiIds
@@ -73,17 +73,18 @@ class CommentsParser extends FileParser
 	synchronized List<Comment> getComments( final int[] chebiIds ) throws IOException, ParseException
 	{
 		final List<Comment> allComments = new ArrayList<>();
-		
+
 		for( int chebiId : chebiIds )
 		{
 			allComments.addAll( getComments( chebiId ) );
 		}
-		
+
 		return allComments;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see libchebi.parser.Parser#init()
 	 */
 	@Override
@@ -95,28 +96,28 @@ class CommentsParser extends FileParser
 		final int DATATYPE_ID = 3;
 		final int DATATYPE = 4;
 		final int TEXT = 5;
-		
+
 		final TreeMap<Integer,List<Comment>> commentsMap = new TreeMap<>();
-		
-		try( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
+
+		try ( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
 		{
 			String line = reader.readLine(); // Read header
-				
+
 			while( ( line = reader.readLine() ) != null )
 			{
 				final String[] tokens = line.split( "\\t" ); //$NON-NLS-1$
 				ParserUtils.add( Integer.valueOf( tokens[ COMPOUND_ID ] ), commentsMap, new Comment( tokens[ DATATYPE_ID ], tokens[ DATATYPE ], tokens[ TEXT ], ParserUtils.parseDate( tokens[ CREATED_ON ] ) ) );
 			}
 		}
-		
+
 		comments = ParserUtils.mapToList( commentsMap );
 	}
-	
+
 	/**
 	 * 
 	 * @return List of comments, indexed by ChEBI id
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	private synchronized List<List<Comment>> getComments() throws IOException, ParseException
 	{

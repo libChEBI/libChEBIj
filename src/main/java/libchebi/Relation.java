@@ -22,47 +22,47 @@ public class Relation
 		 * 
 		 */
 		has_functional_parent,
-		
+
 		/**
 		 * 
 		 */
 		has_parent_hydride,
-		
+
 		/**
 		 * 
 		 */
 		has_part,
-		
+
 		/**
 		 * 
 		 */
 		has_role,
-		
+
 		/**
 		 * 
 		 */
 		is_a,
-		
+
 		/**
 		 * 
 		 */
 		is_conjugate_acid_of,
-		
+
 		/**
 		 * 
 		 */
 		is_conjugate_base_of,
-		
+
 		/**
 		 * 
 		 */
 		is_enantiomer_of,
-		
+
 		/**
 		 * 
 		 */
 		is_substituent_group_from,
-		
+
 		/**
 		 * 
 		 */
@@ -73,17 +73,17 @@ public class Relation
 	 * 
 	 */
 	private final Type type;
-	
+
 	/**
 	 * 
 	 */
 	private final int targetChebiId;
-	
+
 	/**
 	 * 
 	 */
 	private final String status;
-	
+
 	/**
 	 * 
 	 * @param type
@@ -123,9 +123,10 @@ public class Relation
 	{
 		return status;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -134,8 +135,9 @@ public class Relation
 		return type + "\t" + targetChebiId + "\t" + status; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -149,8 +151,9 @@ public class Relation
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -168,9 +171,9 @@ public class Relation
 		{
 			return false;
 		}
-		
+
 		Relation other = (Relation)obj;
-		
+
 		if( !status.equals( other.status ) )
 		{
 			return false;
@@ -183,7 +186,7 @@ public class Relation
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 }

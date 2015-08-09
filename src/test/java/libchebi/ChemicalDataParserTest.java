@@ -17,7 +17,7 @@ import org.junit.*;
 public class ChemicalDataParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class ChemicalDataParserTest
 		final int size = 1;
 		Assert.assertTrue( size < ChemicalDataParser.getInstance().getFormulae( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -41,9 +41,9 @@ public class ChemicalDataParserTest
 		final int size = 0;
 		Assert.assertTrue( size == ChemicalDataParser.getInstance().getFormulae( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -54,9 +54,9 @@ public class ChemicalDataParserTest
 		final Formula formula = new Formula( "C8H11NO3", "KEGG COMPOUND" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertTrue( ChemicalDataParser.getInstance().getFormulae( id ).contains( formula ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -67,9 +67,9 @@ public class ChemicalDataParserTest
 		final Formula formula = new Formula( "C9H11NO3", "KEGG COMPOUND" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertFalse( ChemicalDataParser.getInstance().getFormulae( id ).contains( formula ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -80,9 +80,9 @@ public class ChemicalDataParserTest
 		final Formula formula = new Formula( "C9H11NO3", "KEGG Drug" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertFalse( ChemicalDataParser.getInstance().getFormulae( id ).contains( formula ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -94,9 +94,9 @@ public class ChemicalDataParserTest
 		final float mass = 338.20789f;
 		Assert.assertEquals( mass, ChemicalDataParser.getInstance().getMass( id ), EPSILON );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -108,9 +108,9 @@ public class ChemicalDataParserTest
 		final float mass = ChebiEntity.UNDEFINED_VALUE;
 		Assert.assertEquals( mass, ChemicalDataParser.getInstance().getMass( id ), EPSILON );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -121,9 +121,9 @@ public class ChemicalDataParserTest
 		final int charge = -4;
 		Assert.assertEquals( charge, ChemicalDataParser.getInstance().getCharge( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

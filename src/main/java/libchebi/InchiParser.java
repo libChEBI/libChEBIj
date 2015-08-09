@@ -21,17 +21,17 @@ class InchiParser extends FileParser
 	 * 
 	 */
 	private static InchiParser parser;
-	
+
 	/**
 	 * 
 	 */
 	private String[] inchis;
-	
+
 	/**
 	 * 
 	 * @return singleton InchiParser
-	 * @throws ZipException 
-	 * @throws IOException  
+	 * @throws ZipException
+	 * @throws IOException
 	 */
 	synchronized static InchiParser getInstance() throws ZipException, IOException
 	{
@@ -40,10 +40,10 @@ class InchiParser extends FileParser
 			final File file = Downloader.getInstance().getFile( "chebiId_inchi.tsv" ); //$NON-NLS-1$
 			parser = new InchiParser( file );
 		}
-		
+
 		return parser;
 	}
-	
+
 	/**
 	 * 
 	 * @param file
@@ -52,33 +52,34 @@ class InchiParser extends FileParser
 	{
 		super( file );
 	}
-	
+
 	/**
 	 * 
 	 * @param chebiId
 	 * @return InChI string
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	synchronized String getInchi( final int chebiId ) throws IOException, ParseException
 	{
 		return chebiId > -1 && chebiId < getInchis().length ? inchis[ chebiId ] : null;
 	}
-	
+
 	/**
 	 * 
 	 * @return array of InChI strings, indexed by ChEBI id
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	private synchronized String[] getInchis() throws IOException, ParseException
 	{
 		checkInit();
 		return inchis;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see libchebi.parser.Parser#init()
 	 */
 	@Override
@@ -86,13 +87,13 @@ class InchiParser extends FileParser
 	{
 		final int CHEBI_ID = 0;
 		final int INCHI = 1;
-		
+
 		final TreeMap<Integer,String> inchiMap = new TreeMap<>();
-		
-		try( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
+
+		try ( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
 		{
 			String line = reader.readLine(); // Read header
-				
+
 			while( ( line = reader.readLine() ) != null )
 			{
 				final String[] tokens = line.split( "\\t" ); //$NON-NLS-1$

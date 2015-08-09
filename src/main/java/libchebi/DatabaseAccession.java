@@ -16,12 +16,12 @@ public class DatabaseAccession extends SourcedData
 	 * 
 	 */
 	private final String type;
-	
+
 	/**
 	 * 
 	 */
 	private final String accessionNumber;
-	
+
 	/**
 	 * 
 	 * @param type
@@ -31,7 +31,7 @@ public class DatabaseAccession extends SourcedData
 	DatabaseAccession( final String type, final String accessionNumber, final String source )
 	{
 		super( source );
-		
+
 		assert type != null;
 		assert accessionNumber != null;
 
@@ -54,9 +54,10 @@ public class DatabaseAccession extends SourcedData
 	{
 		return accessionNumber;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -65,8 +66,9 @@ public class DatabaseAccession extends SourcedData
 		return source + "\t" + type + "\t" + accessionNumber; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -79,8 +81,9 @@ public class DatabaseAccession extends SourcedData
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -90,29 +93,29 @@ public class DatabaseAccession extends SourcedData
 		{
 			return true;
 		}
-		
+
 		if( obj == null )
 		{
 			return false;
 		}
-		
+
 		if( !( obj instanceof DatabaseAccession ) )
 		{
 			return false;
 		}
-		
+
 		final DatabaseAccession other = (DatabaseAccession)obj;
-		
+
 		if( !type.equals( other.type ) )
 		{
 			return false;
 		}
-		
+
 		if( !accessionNumber.equals( other.accessionNumber ) )
 		{
 			return false;
 		}
-		
+
 		return super.equals( other );
 	}
 }

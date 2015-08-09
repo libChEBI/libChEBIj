@@ -19,7 +19,7 @@ abstract class Parser
 	 * 
 	 */
 	private boolean init = false;
-	
+
 	/**
 	 * 
 	 * @throws IOException
@@ -33,11 +33,11 @@ abstract class Parser
 			init = true;
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	protected abstract void init() throws IOException, ParseException;
 }

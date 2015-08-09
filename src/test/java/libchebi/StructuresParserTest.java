@@ -17,7 +17,7 @@ import org.junit.*;
 public class StructuresParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -27,9 +27,9 @@ public class StructuresParserTest
 		final int id = 1;
 		Assert.assertNull( StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -39,9 +39,9 @@ public class StructuresParserTest
 		final int id = -1;
 		Assert.assertNull( StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -52,9 +52,9 @@ public class StructuresParserTest
 		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
 		Assert.assertEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -65,9 +65,9 @@ public class StructuresParserTest
 		final Structure structure = new Structure( "InChIKey=made_up", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -78,9 +78,9 @@ public class StructuresParserTest
 		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.mol, 1 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -91,9 +91,9 @@ public class StructuresParserTest
 		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 123456 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -103,9 +103,9 @@ public class StructuresParserTest
 		final int id = 1;
 		Assert.assertNull( StructuresParser.getInstance().getSmiles( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -115,9 +115,9 @@ public class StructuresParserTest
 		final int id = -1;
 		Assert.assertNull( StructuresParser.getInstance().getSmiles( id ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -128,8 +128,8 @@ public class StructuresParserTest
 		final Structure structure = new Structure( "NC(=[NH2+])NCC[C@H](O)[C@H]([NH3+])C([O-])=O", Structure.Type.SMILES, 1 ); //$NON-NLS-1$
 		Assert.assertEquals( structure, StructuresParser.getInstance().getSmiles( id ) );
 	}
-	
-	/** 
+
+	/**
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -139,8 +139,8 @@ public class StructuresParserTest
 		final int id = 1;
 		Assert.assertNull( StructuresParser.getInstance().getMol( id ) );
 	}
-	
-	/** 
+
+	/**
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -150,7 +150,7 @@ public class StructuresParserTest
 		final int id = -1;
 		Assert.assertNull( StructuresParser.getInstance().getMol( id ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -162,7 +162,7 @@ public class StructuresParserTest
 		final Structure structure = new Structure( MolTestUtils.readMol( id ), Structure.Type.mol, 2 );
 		Assert.assertEquals( structure, StructuresParser.getInstance().getMol( id ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -174,7 +174,7 @@ public class StructuresParserTest
 		final Structure structure = new Structure( MolTestUtils.readMol( id ), Structure.Type.mol, 2 );
 		Assert.assertEquals( structure, StructuresParser.getInstance().getMol( id ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -185,7 +185,7 @@ public class StructuresParserTest
 		final int id = 1;
 		Assert.assertNull( StructuresParser.getInstance().getMolFile( id ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -196,7 +196,7 @@ public class StructuresParserTest
 		final int id = -1;
 		Assert.assertNull( StructuresParser.getInstance().getMolFile( id ) );
 	}
-	
+
 	/**
 	 * @throws IOException
 	 */
@@ -205,8 +205,8 @@ public class StructuresParserTest
 	public void getMolFile() throws IOException
 	{
 		final int id = 73938;
-		
-		try( InputStream is = new FileInputStream( StructuresParser.getInstance().getMolFile( id ) ) )
+
+		try ( InputStream is = new FileInputStream( StructuresParser.getInstance().getMolFile( id ) ) )
 		{
 			final String molRead = MolTestUtils.readMol( id );
 			final String molRetrieved = MolTestUtils.readMol( is );

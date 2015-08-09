@@ -17,7 +17,7 @@ import org.junit.*;
 public class CommentsParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class CommentsParserTest
 		final int size = 3;
 		Assert.assertTrue( size < CommentsParser.getInstance().getComments( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -41,9 +41,9 @@ public class CommentsParserTest
 		final int size = 0;
 		Assert.assertEquals( size, CommentsParser.getInstance().getComments( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -54,9 +54,9 @@ public class CommentsParserTest
 		final int size = 0;
 		Assert.assertEquals( size, CommentsParser.getInstance().getComments( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -67,9 +67,9 @@ public class CommentsParserTest
 		final Comment comment = new Comment( "DatabaseAccession", "DatabaseAccession", "Z stereomer", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertTrue( CommentsParser.getInstance().getComments( id ).contains( comment ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -80,9 +80,9 @@ public class CommentsParserTest
 		final Comment comment = new Comment( "DA", "DatabaseAccession", "Z stereomer", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( CommentsParser.getInstance().getComments( id ).contains( comment ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -93,9 +93,9 @@ public class CommentsParserTest
 		final Comment comment = new Comment( "DatabaseAccession", "DA", "Z stereomer", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( CommentsParser.getInstance().getComments( id ).contains( comment ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -106,9 +106,9 @@ public class CommentsParserTest
 		final Comment comment = new Comment( "DatabaseAccession", "DatabaseAccession", "Random text", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( CommentsParser.getInstance().getComments( id ).contains( comment ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

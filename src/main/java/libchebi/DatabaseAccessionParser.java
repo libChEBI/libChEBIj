@@ -20,16 +20,16 @@ class DatabaseAccessionParser extends FileParser
 	 * 
 	 */
 	private static DatabaseAccessionParser parser;
-	
+
 	/**
 	 * 
 	 */
 	private List<List<DatabaseAccession>> databaseAccessions;
-	
+
 	/**
 	 * 
 	 * @return singleton DatabaseAccessionParser
-	 * @throws IOException  
+	 * @throws IOException
 	 */
 	synchronized static DatabaseAccessionParser getInstance() throws IOException
 	{
@@ -38,10 +38,10 @@ class DatabaseAccessionParser extends FileParser
 			final File file = Downloader.getInstance().getFile( "database_accession.tsv" ); //$NON-NLS-1$
 			parser = new DatabaseAccessionParser( file );
 		}
-		
+
 		return parser;
 	}
-	
+
 	/**
 	 * 
 	 * @param file
@@ -56,13 +56,13 @@ class DatabaseAccessionParser extends FileParser
 	 * @param chebiId
 	 * @return database accessions
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	synchronized List<DatabaseAccession> getDatabaseAccessions( final int chebiId ) throws IOException, ParseException
 	{
 		return chebiId > -1 && chebiId < getDatabaseAccessions().size() ? databaseAccessions.get( chebiId ) : new ArrayList<DatabaseAccession>();
 	}
-	
+
 	/**
 	 * 
 	 * @param chebiIds
@@ -73,17 +73,18 @@ class DatabaseAccessionParser extends FileParser
 	synchronized List<DatabaseAccession> getDatabaseAccessions( final int[] chebiIds ) throws IOException, ParseException
 	{
 		final List<DatabaseAccession> allDatabaseAccessions = new ArrayList<>();
-		
+
 		for( int chebiId : chebiIds )
 		{
 			allDatabaseAccessions.addAll( getDatabaseAccessions( chebiId ) );
 		}
-		
+
 		return allDatabaseAccessions;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see libchebi.parser.Parser#init()
 	 */
 	@Override
@@ -94,28 +95,28 @@ class DatabaseAccessionParser extends FileParser
 		final int SOURCE = 2;
 		final int TYPE = 3;
 		final int ACCESSION_NUMBER = 4;
-		
+
 		final TreeMap<Integer,List<DatabaseAccession>> databaseAccessionsMap = new TreeMap<>();
-		
-		try( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
+
+		try ( BufferedReader reader = new BufferedReader( new FileReader( file ) ) )
 		{
 			String line = reader.readLine(); // Read header
-				
+
 			while( ( line = reader.readLine() ) != null )
 			{
 				final String[] tokens = line.split( "\\t" ); //$NON-NLS-1$
 				ParserUtils.add( Integer.valueOf( tokens[ COMPOUND_ID ] ), databaseAccessionsMap, new DatabaseAccession( tokens[ TYPE ], tokens[ ACCESSION_NUMBER ], tokens[ SOURCE ] ) );
 			}
 		}
-		
+
 		databaseAccessions = ParserUtils.mapToList( databaseAccessionsMap );
 	}
-	
+
 	/**
 	 * 
 	 * @return List of database accessions, indexed by ChEBI id
 	 * @throws IOException
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	private synchronized List<List<DatabaseAccession>> getDatabaseAccessions() throws IOException, ParseException
 	{

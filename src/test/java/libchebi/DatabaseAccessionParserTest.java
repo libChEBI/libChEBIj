@@ -17,7 +17,7 @@ import org.junit.*;
 public class DatabaseAccessionParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class DatabaseAccessionParserTest
 		final int size = 5;
 		Assert.assertTrue( size < DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -41,9 +41,9 @@ public class DatabaseAccessionParserTest
 		final int size = 0;
 		Assert.assertEquals( size, DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -54,9 +54,9 @@ public class DatabaseAccessionParserTest
 		final int size = 0;
 		Assert.assertEquals( size, DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -67,9 +67,9 @@ public class DatabaseAccessionParserTest
 		final DatabaseAccession databaseAccession = new DatabaseAccession( "PubMed citation", "214717", "SUBMITTER" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		Assert.assertTrue( DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).contains( databaseAccession ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -80,9 +80,9 @@ public class DatabaseAccessionParserTest
 		final DatabaseAccession databaseAccession = new DatabaseAccession( "ChEBI", "214717", "SUBMITTER" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		Assert.assertFalse( DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).contains( databaseAccession ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -93,9 +93,9 @@ public class DatabaseAccessionParserTest
 		final DatabaseAccession databaseAccession = new DatabaseAccession( "PubMed citation", "123456", "SUBMITTER" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		Assert.assertFalse( DatabaseAccessionParser.getInstance().getDatabaseAccessions( id ).contains( databaseAccession ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

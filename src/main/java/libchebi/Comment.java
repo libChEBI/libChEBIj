@@ -18,22 +18,22 @@ public class Comment
 	 * 
 	 */
 	private final String datatypeId;
-	
+
 	/**
 	 * 
 	 */
 	private final String datatype;
-	
+
 	/**
 	 * 
 	 */
 	private final String text;
-	
+
 	/**
 	 * 
 	 */
 	private final Date createdOn;
-	
+
 	/**
 	 * 
 	 */
@@ -43,7 +43,7 @@ public class Comment
 		assert datatype != null;
 		assert text != null;
 		assert createdOn != null;
-		
+
 		this.datatypeId = datatypeId;
 		this.datatype = datatype;
 		this.text = text;
@@ -73,7 +73,7 @@ public class Comment
 	{
 		return text;
 	}
-	
+
 	/**
 	 * @return created on
 	 */
@@ -81,9 +81,10 @@ public class Comment
 	{
 		return createdOn;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -92,8 +93,9 @@ public class Comment
 		return createdOn + "\t" + datatypeId + "\t" + datatype + "\t" + text; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -108,8 +110,9 @@ public class Comment
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -127,29 +130,29 @@ public class Comment
 		{
 			return false;
 		}
-		
+
 		final Comment other = (Comment)obj;
-		
+
 		if( !datatype.equals( other.datatype ) )
 		{
 			return false;
 		}
-		
+
 		if( !datatypeId.equals( other.datatypeId ) )
 		{
 			return false;
 		}
-		
+
 		if( !text.equals( other.text ) )
 		{
 			return false;
 		}
-		
+
 		if( !createdOn.equals( other.createdOn ) )
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 }

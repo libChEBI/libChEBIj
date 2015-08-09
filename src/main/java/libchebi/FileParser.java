@@ -18,7 +18,7 @@ abstract class FileParser extends Parser
 	 * 
 	 */
 	protected final File file;
-	
+
 	/**
 	 * 
 	 * @param file

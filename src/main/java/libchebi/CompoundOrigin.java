@@ -16,47 +16,47 @@ public class CompoundOrigin
 	 * 
 	 */
 	private final String speciesText;
-	
+
 	/**
 	 * 
 	 */
 	private final String speciesAccession;
-	
+
 	/**
 	 * 
 	 */
 	private final String componentText;
-	
+
 	/**
 	 * 
 	 */
 	private final String componentAccession;
-	
+
 	/**
 	 * 
 	 */
 	private final String strainText;
-	
+
 	/**
 	 * 
 	 */
 	private final String strainAccession;
-	
+
 	/**
 	 * 
 	 */
 	private final String sourceType;
-	
+
 	/**
 	 * 
 	 */
 	private final String sourceAccession;
-	
+
 	/**
 	 * 
 	 */
 	private final String comments;
-	
+
 	/**
 	 * 
 	 * @param speciesText
@@ -75,7 +75,7 @@ public class CompoundOrigin
 		assert speciesAccession != null;
 		assert sourceType != null;
 		assert sourceAccession != null;
-		
+
 		final String NULL = "null"; //$NON-NLS-1$
 
 		this.speciesText = NULL.equals( speciesText ) ? null : speciesText;
@@ -88,7 +88,7 @@ public class CompoundOrigin
 		this.sourceAccession = NULL.equals( sourceAccession ) ? null : sourceAccession;
 		this.comments = NULL.equals( comments ) ? null : comments;
 	}
-	
+
 	/**
 	 * @return species text
 	 */
@@ -161,8 +161,9 @@ public class CompoundOrigin
 		return comments;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -173,6 +174,7 @@ public class CompoundOrigin
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -194,6 +196,7 @@ public class CompoundOrigin
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -203,19 +206,19 @@ public class CompoundOrigin
 		{
 			return true;
 		}
-		
+
 		if( obj == null )
 		{
 			return false;
 		}
-		
+
 		if( !( obj instanceof CompoundOrigin ) )
 		{
 			return false;
 		}
-		
+
 		CompoundOrigin other = (CompoundOrigin)obj;
-		
+
 		if( comments == null )
 		{
 			if( other.comments != null )
@@ -227,7 +230,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( componentAccession == null )
 		{
 			if( other.componentAccession != null )
@@ -239,7 +242,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( componentText == null )
 		{
 			if( other.componentText != null )
@@ -251,7 +254,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( sourceAccession == null )
 		{
 			if( other.sourceAccession != null )
@@ -263,7 +266,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( sourceType == null )
 		{
 			if( other.sourceType != null )
@@ -275,7 +278,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( speciesAccession == null )
 		{
 			if( other.speciesAccession != null )
@@ -287,7 +290,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( speciesText == null )
 		{
 			if( other.speciesText != null )
@@ -299,7 +302,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( strainAccession == null )
 		{
 			if( other.strainAccession != null )
@@ -311,7 +314,7 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		if( strainText == null )
 		{
 			if( other.strainText != null )
@@ -323,9 +326,8 @@ public class CompoundOrigin
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 
-	
 }

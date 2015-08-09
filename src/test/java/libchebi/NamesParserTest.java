@@ -17,7 +17,7 @@ import org.junit.*;
 public class NamesParserTest
 {
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -28,9 +28,9 @@ public class NamesParserTest
 		final int size = 5;
 		Assert.assertTrue( size < NamesParser.getInstance().getNames( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -41,9 +41,9 @@ public class NamesParserTest
 		final int size = 0;
 		Assert.assertEquals( size, NamesParser.getInstance().getNames( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -54,9 +54,9 @@ public class NamesParserTest
 		final int size = 0;
 		Assert.assertEquals( size, NamesParser.getInstance().getNames( id ).size() );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -67,9 +67,9 @@ public class NamesParserTest
 		final Name name = new Name( "2-(p-Chloro-o-tolyloxy)propionic acid", "SYNONYM", "ChemIDplus", false, "en" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertTrue( NamesParser.getInstance().getNames( id ).contains( name ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -80,9 +80,9 @@ public class NamesParserTest
 		final Name name = new Name( "Glucose", "SYNONYM", "ChemIDplus", false, "en" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( NamesParser.getInstance().getNames( id ).contains( name ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -93,9 +93,9 @@ public class NamesParserTest
 		final Name name = new Name( "2-(p-Chloro-o-tolyloxy)propionic acid", "NAME", "ChemIDplus", false, "en" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( NamesParser.getInstance().getNames( id ).contains( name ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -106,9 +106,9 @@ public class NamesParserTest
 		final Name name = new Name( "2-(p-Chloro-o-tolyloxy)propionic acid", "SYNONYM", "ChEBI", false, "en" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( NamesParser.getInstance().getNames( id ).contains( name ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")
@@ -119,9 +119,9 @@ public class NamesParserTest
 		final Name name = new Name( "2-(p-Chloro-o-tolyloxy)propionic acid", "SYNONYM", "ChemIDplus", true, "en" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertFalse( NamesParser.getInstance().getNames( id ).contains( name ) );
 	}
-	
+
 	/**
-	 * @throws ParseException 
+	 * @throws ParseException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("static-method")

@@ -16,23 +16,26 @@ class Structure
 	 * 
 	 * @author neilswainston
 	 */
-	public static enum Type { InChIKey, mol, SMILES }
-	
+	public static enum Type
+	{
+		InChIKey, mol, SMILES
+	}
+
 	/**
 	 * 
 	 */
 	private final String structure;
-	
+
 	/**
 	 * 
 	 */
 	private final Type type;
-	
+
 	/**
 	 * 
 	 */
 	private final int dimension;
-	
+
 	/**
 	 * 
 	 * @param structure
@@ -43,7 +46,7 @@ class Structure
 	{
 		assert structure != null;
 		assert type != null;
-		
+
 		this.structure = structure;
 		this.type = type;
 		this.dimension = dimension;
@@ -72,9 +75,10 @@ class Structure
 	{
 		return dimension;
 	}
-	
-	/* 
+
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -83,8 +87,9 @@ class Structure
 		return structure + "\t" + type + "\t" + dimension + "D"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -98,8 +103,9 @@ class Structure
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -117,9 +123,9 @@ class Structure
 		{
 			return false;
 		}
-		
+
 		Structure other = (Structure)obj;
-		
+
 		if( dimension != other.dimension )
 		{
 			return false;
@@ -129,12 +135,12 @@ class Structure
 		{
 			return false;
 		}
-		
+
 		if( type != other.type )
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 }

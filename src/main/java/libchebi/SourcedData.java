@@ -16,12 +16,12 @@ abstract class SourcedData implements Comparable<SourcedData>
 	 * 
 	 */
 	private final static String CHEBI_SOURCE = "ChEBI"; //$NON-NLS-1$
-	
+
 	/**
 	 * 
 	 */
 	protected final String source;
-	
+
 	/**
 	 * 
 	 * @param data
@@ -30,7 +30,7 @@ abstract class SourcedData implements Comparable<SourcedData>
 	SourcedData( final String source )
 	{
 		assert source != null;
-		
+
 		this.source = source;
 	}
 
@@ -42,8 +42,9 @@ abstract class SourcedData implements Comparable<SourcedData>
 		return source;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -55,8 +56,9 @@ abstract class SourcedData implements Comparable<SourcedData>
 		return result;
 	}
 
-	/* 
+	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -74,48 +76,49 @@ abstract class SourcedData implements Comparable<SourcedData>
 		{
 			return false;
 		}
-		
+
 		final SourcedData other = (SourcedData)obj;
-		
+
 		if( !source.equals( other.source ) )
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
 	public int compareTo( final SourcedData o )
 	{
 		final int BEFORE = -1;
-	    final int EQUAL = 0;
-	    final int AFTER = 1;
+		final int EQUAL = 0;
+		final int AFTER = 1;
 
-	    if( this == o )
-	    {
-	    	return EQUAL;
-	    }
-	    
-	    if( source.equals( CHEBI_SOURCE ) )
-	    {
-	    	if( o.source.equals( CHEBI_SOURCE ) )
-	    	{
-	    		return EQUAL;
-	    	}
-	    	// else
-	    	return BEFORE;
-	    }
-	    
-	    if( o.source.equals( CHEBI_SOURCE ) )
-    	{
-    		return AFTER;
-    	}
-	    
-	    return source.compareTo( o.source );
+		if( this == o )
+		{
+			return EQUAL;
+		}
+
+		if( source.equals( CHEBI_SOURCE ) )
+		{
+			if( o.source.equals( CHEBI_SOURCE ) )
+			{
+				return EQUAL;
+			}
+			// else
+			return BEFORE;
+		}
+
+		if( o.source.equals( CHEBI_SOURCE ) )
+		{
+			return AFTER;
+		}
+
+		return source.compareTo( o.source );
 	}
 }
