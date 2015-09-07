@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.co.synbiochem</groupId>
   <artifactId>libChEBIj</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-RC1</version>
   <build>
     <plugins>
       <plugin>
