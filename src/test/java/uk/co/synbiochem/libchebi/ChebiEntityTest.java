@@ -439,7 +439,7 @@ public class ChebiEntityTest
 	@Test
 	public void getInchiKeyExisting() throws IOException, ParseException
 	{
-		Assert.assertEquals( existing.getInchiKey(), "InChIKey=WQZGKKKJIJFFOK-GASJEMHNSA-N" ); //$NON-NLS-1$
+		Assert.assertEquals( existing.getInchiKey(), "WQZGKKKJIJFFOK-GASJEMHNSA-N" ); //$NON-NLS-1$
 	}
 
 	/**
@@ -449,7 +449,7 @@ public class ChebiEntityTest
 	@Test
 	public void getInchiKeySecondary() throws IOException, ParseException
 	{
-		Assert.assertEquals( secondary.getInchiKey(), "InChIKey=XLYOFNOQVPJJNP-UHFFFAOYSA-N" ); //$NON-NLS-1$
+		Assert.assertEquals( secondary.getInchiKey(), "XLYOFNOQVPJJNP-UHFFFAOYSA-N" ); //$NON-NLS-1$
 	}
 
 	/**

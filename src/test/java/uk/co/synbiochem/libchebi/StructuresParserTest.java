@@ -49,7 +49,7 @@ public class StructuresParserTest
 	public void getInchiKey() throws IOException, ParseException
 	{
 		final int id = 73938;
-		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
+		final Structure structure = new Structure( "VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
 		Assert.assertEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
 
@@ -62,7 +62,7 @@ public class StructuresParserTest
 	public void getInchiKeyNegativeStructure() throws IOException, ParseException
 	{
 		final int id = 73938;
-		final Structure structure = new Structure( "InChIKey=made_up", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
+		final Structure structure = new Structure( "made_up", Structure.Type.InChIKey, 1 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
 
@@ -75,7 +75,7 @@ public class StructuresParserTest
 	public void getInchiKeyNegativeType() throws IOException, ParseException
 	{
 		final int id = 73938;
-		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.mol, 1 ); //$NON-NLS-1$
+		final Structure structure = new Structure( "VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.mol, 1 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
 
@@ -88,7 +88,7 @@ public class StructuresParserTest
 	public void getInchiKeyNegativeDimension() throws IOException, ParseException
 	{
 		final int id = 73938;
-		final Structure structure = new Structure( "InChIKey=VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 123456 ); //$NON-NLS-1$
+		final Structure structure = new Structure( "VIDUVSPOWYVZIC-IMJSIDKUSA-O", Structure.Type.InChIKey, 123456 ); //$NON-NLS-1$
 		Assert.assertNotEquals( structure, StructuresParser.getInstance().getInchiKey( id ) );
 	}
 
