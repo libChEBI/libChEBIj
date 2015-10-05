@@ -7,7 +7,7 @@
   
   <name>libChEBIj</name>
   <description>libChEBIj</description>
-  <url>https://github.com/mcisb/mcisb-core</url>
+  <url>https://github.com/libChEBI/libChEBIj</url>
   
   <licenses>
     <license>
@@ -17,9 +17,9 @@
   </licenses>
   
   <scm>
-    <url>https://github.com/synbiochem/libChEBIj</url>
-    <connection>scm:git:https://github.com/synbiochem/libChEBIj.git</connection>
-    <developerConnection>scm:git:https://github.com/synbiochem/libChEBIj.git</developerConnection>
+    <url>https://github.com/libChEBI/libChEBIj</url>
+    <connection>scm:git:https://github.com/libChEBI/libChEBIj.git</connection>
+    <developerConnection>scm:git:https://github.com/libChEBI/libChEBIj.git</developerConnection>
   </scm>
 
   <developers>
