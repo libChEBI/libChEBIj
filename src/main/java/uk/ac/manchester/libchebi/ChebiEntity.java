@@ -575,4 +575,24 @@ public class ChebiEntity
 
 		return allIds;
 	}
+	
+	/**
+	 * Example code, showing the instantiation of a ChebiEntity, a call to getNames(),
+	 * and the calling of a number of methods of the returned Names objects.
+	 * 
+	 * @param args
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws ChebiException
+	 */
+	@SuppressWarnings("nls")
+	public static void main( final String[] args ) throws IOException, ParseException, ChebiException
+	{
+		ChebiEntity chebiEntity = new ChebiEntity( 17634 );
+		
+		for( Name name : chebiEntity.getNames() )
+		{
+			System.out.println( name.getName() + "\t" + name.getSource() + "\t" + name.getLanguage() );
+		}
+	}
 }
