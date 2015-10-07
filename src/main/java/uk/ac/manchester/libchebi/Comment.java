@@ -51,14 +51,6 @@ public class Comment
 	}
 
 	/**
-	 * @return datatype id
-	 */
-	public String getDatatypeId()
-	{
-		return datatypeId;
-	}
-
-	/**
 	 * @return datatype
 	 */
 	public String getDatatype()
@@ -80,6 +72,18 @@ public class Comment
 	public Date getCreatedOn()
 	{
 		return createdOn;
+	}
+	
+	/**
+	 * Commonly, datatypeId is the same as datatype.
+	 * 
+	 * Method has been made package private to "hide" this duplicate.
+	 * 
+	 * @return datatype id
+	 */
+	String getDatatypeId()
+	{
+		return datatypeId;
 	}
 
 	/*

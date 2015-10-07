@@ -119,7 +119,7 @@ public class Relation
 	/**
 	 * @return status
 	 */
-	public String getStatus()
+	String getStatus()
 	{
 		return status;
 	}

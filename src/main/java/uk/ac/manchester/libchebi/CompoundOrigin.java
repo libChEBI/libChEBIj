@@ -98,14 +98,6 @@ public class CompoundOrigin
 	}
 
 	/**
-	 * @return species accession
-	 */
-	public String getSpeciesAccession()
-	{
-		return speciesAccession;
-	}
-
-	/**
 	 * @return component text
 	 */
 	public String getComponentText()
@@ -159,6 +151,18 @@ public class CompoundOrigin
 	public String getComments()
 	{
 		return comments;
+	}
+	
+	/**
+	 * Appears that this value is always null.
+	 * 
+	 * Therefore method made package private to "hide" it.
+	 * 
+	 * @return species accession
+	 */
+	String getSpeciesAccession()
+	{
+		return speciesAccession;
 	}
 
 	/*
