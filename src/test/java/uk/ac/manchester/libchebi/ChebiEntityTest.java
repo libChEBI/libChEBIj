@@ -22,12 +22,12 @@ public class ChebiEntityTest
 	/**
 	 * 
 	 */
-	private final ChebiEntity existing = new ChebiEntity( 4167 );
+	private final ChebiEntity existing = new ChebiEntity( "4167" ); //$NON-NLS-1$
 
 	/**
 	 * 
 	 */
-	private final ChebiEntity secondary = new ChebiEntity( 5585 );
+	private final ChebiEntity secondary = new ChebiEntity( "CHEBI:5585" ); //$NON-NLS-1$
 
 	/**
 	 * 
@@ -46,7 +46,7 @@ public class ChebiEntityTest
 	@Test(expected = ChebiException.class)
 	public void getNonExisting() throws IOException, ParseException, ChebiException
 	{
-		new ChebiEntity( -1 );
+		new ChebiEntity( "-1" ); //$NON-NLS-1$
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class ChebiEntityTest
 	@Test
 	public void getIdExisting()
 	{
-		Assert.assertTrue( existing.getId() == 4167 );
+		Assert.assertTrue( existing.getId().equals( "CHEBI:4167" ) ); //$NON-NLS-1$
 	}
 
 	/**
@@ -64,7 +64,7 @@ public class ChebiEntityTest
 	@Test
 	public void getIdSecondary()
 	{
-		Assert.assertTrue( secondary.getId() == 5585 );
+		Assert.assertTrue( secondary.getId().equals( "CHEBI:5585" ) ); //$NON-NLS-1$
 	}
 
 	/**
@@ -161,9 +161,8 @@ public class ChebiEntityTest
 	public void getChargeSecondary2() throws IOException, ParseException, ChebiException
 	{
 		final double EPSILON = 1e-16;
-		final int id = 43474;
 		final int charge = -2;
-		Assert.assertEquals( new ChebiEntity( id ).getCharge(), charge, EPSILON );
+		Assert.assertEquals( new ChebiEntity( "43474" ).getCharge(), charge, EPSILON ); //$NON-NLS-1$
 	}
 
 	/**
@@ -175,7 +174,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCommentsExisting() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( 29044 ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( new ChebiEntity( "CHEBI:29044" ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -187,7 +186,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCommentsSecondary() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( 11505 ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( new ChebiEntity( "11505" ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -261,7 +260,7 @@ public class ChebiEntityTest
 
 		for( int id : existing.getAllIds() )
 		{
-			if( id == existing.getId() )
+			if( id == Integer.parseInt( existing.getId().replace( "CHEBI:", "" ) ) ) //$NON-NLS-1$ //$NON-NLS-2$
 			{
 				found = true;
 				break;
@@ -331,7 +330,7 @@ public class ChebiEntityTest
 	@Test
 	public void getDefinitionSecondary() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertEquals( new ChebiEntity( 41140 ).getDefinition(), "D-Glucopyranose with beta configuration at the anomeric centre." ); //$NON-NLS-1$
+		Assert.assertEquals( new ChebiEntity( "41140" ).getDefinition(), "D-Glucopyranose with beta configuration at the anomeric centre." ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -484,7 +483,7 @@ public class ChebiEntityTest
 	public void getMolExisting() throws IOException, ParseException, ChebiException
 	{
 		final int id = 73938;
-		Assert.assertEquals( new ChebiEntity( id ).getMol(), MolTestUtils.readMol( id ) );
+		Assert.assertEquals( new ChebiEntity( Integer.toString( id ) ).getMol(), MolTestUtils.readMol( id ) );
 	}
 
 	/**
@@ -508,7 +507,7 @@ public class ChebiEntityTest
 	public void getMolFileExisting() throws IOException, ParseException, ChebiException
 	{
 		final int id = 73938;
-		testGetMolFile( id, id );
+		testGetMolFile( id, Integer.toString( id ) );
 	}
 
 	/**
@@ -521,9 +520,7 @@ public class ChebiEntityTest
 	@Test
 	public void getMolFileSecondary() throws IOException, ParseException, ChebiException
 	{
-		final int readId = 15377;
-		final int retrievedId = 42857;
-		testGetMolFile( readId, retrievedId );
+		testGetMolFile( 15377, "42857" ); //$NON-NLS-1$
 	}
 
 	/**
@@ -555,7 +552,7 @@ public class ChebiEntityTest
 	@Test
 	public void getReferencesExisting() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( 15347 ).getReferences().contains( new Reference( "WO2006008754", "Patent", "", "NOVEL INTERMEDIATES FOR LINEZOLID AND RELATED COMPOUNDS" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( new ChebiEntity( "15347" ).getReferences().contains( new Reference( "WO2006008754", "Patent", "", "NOVEL INTERMEDIATES FOR LINEZOLID AND RELATED COMPOUNDS" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -567,7 +564,7 @@ public class ChebiEntityTest
 	@Test
 	public void getReferencesSecondary() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( 22182 ).getReferences().contains( new Reference( "WO2006008754", "Patent", "", "NOVEL INTERMEDIATES FOR LINEZOLID AND RELATED COMPOUNDS" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( new ChebiEntity( "22182" ).getReferences().contains( new Reference( "WO2006008754", "Patent", "", "NOVEL INTERMEDIATES FOR LINEZOLID AND RELATED COMPOUNDS" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -631,12 +628,14 @@ public class ChebiEntityTest
 	}
 
 	/**
-	 * @throws ParseException
+	 * 
+	 * @param readId
+	 * @param retrievedId
 	 * @throws IOException
+	 * @throws ParseException
 	 * @throws ChebiException
-	 * @throws MolFileException
 	 */
-	private static void testGetMolFile( final int readId, final int retrievedId ) throws IOException, ParseException, ChebiException
+	private static void testGetMolFile( final int readId, final String retrievedId ) throws IOException, ParseException, ChebiException
 	{
 		try ( InputStream is = new FileInputStream( new ChebiEntity( retrievedId ).getMolFile() ) )
 		{

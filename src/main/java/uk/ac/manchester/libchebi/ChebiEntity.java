@@ -41,9 +41,9 @@ public class ChebiEntity
 	 * @throws ParseException
 	 * @throws IOException
 	 */
-	public ChebiEntity( final int id ) throws IOException, ParseException, ChebiException
+	public ChebiEntity( final String id ) throws IOException, ParseException, ChebiException
 	{
-		this.id = id;
+		this.id = Integer.parseInt( id.replace( "CHEBI:", "" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
 		if( getName() == null )
 		{
@@ -55,9 +55,9 @@ public class ChebiEntity
 	 * 
 	 * @return id
 	 */
-	public int getId()
+	public String getId()
 	{
-		return id;
+		return "CHEBI:" + id; //$NON-NLS-1$
 	}
 
 	/**
@@ -588,11 +588,11 @@ public class ChebiEntity
 	@SuppressWarnings("nls")
 	public static void main( final String[] args ) throws IOException, ParseException, ChebiException
 	{
-		ChebiEntity chebiEntity = new ChebiEntity( 17634 );
+		ChebiEntity chebiEntity = new ChebiEntity( "CHEBI:17634" );
 		
 		for( Name name : chebiEntity.getNames() )
 		{
-			System.out.println( name.getName() + "\t" + name.getSource() + "\t" + name.getLanguage() );
+			System.out.println( name.getName() + "\t" + name.getSource() + "\t" + name.getLanguage() ); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 }
