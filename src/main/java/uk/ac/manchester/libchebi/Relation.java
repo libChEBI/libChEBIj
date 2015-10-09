@@ -90,13 +90,13 @@ public class Relation
 	 * @param targetChebiId
 	 * @param status
 	 */
-	public Relation( final Type type, final int targetChebiId, final String status )
+	public Relation( final Type type, final String targetChebiId, final String status )
 	{
 		assert type != null;
 		assert status != null;
 
 		this.type = type;
-		this.targetChebiId = targetChebiId;
+		this.targetChebiId = Integer.parseInt( targetChebiId.replace( "CHEBI:", "" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 		this.status = status;
 	}
 
@@ -111,9 +111,9 @@ public class Relation
 	/**
 	 * @return target ChEBI id
 	 */
-	public int getTargetChebiId()
+	public String getTargetChebiId()
 	{
-		return targetChebiId;
+		return "CHEBI:" + targetChebiId; //$NON-NLS-1$
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class Relation
 	@Override
 	public String toString()
 	{
-		return type + "\t" + targetChebiId + "\t" + status; //$NON-NLS-1$ //$NON-NLS-2$
+		return type + "\t" + getTargetChebiId() + "\t" + status; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/*

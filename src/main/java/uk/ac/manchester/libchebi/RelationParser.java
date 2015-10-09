@@ -171,8 +171,8 @@ class RelationParser extends Parser
 				final Integer sourceChebiId = Integer.valueOf( verticeMap.get( tokens[ FINAL_ID_REACTION ] ) );
 				final Integer targetChebiId = Integer.valueOf( verticeMap.get( tokens[ INIT_ID_REACTION ] ) );
 				final Relation.Type type = Relation.Type.valueOf( ( tokens[ TYPE_REACTION ] ) );
-				ParserUtils.add( sourceChebiId, outgoingsMap, new Relation( type, targetChebiId.intValue(), tokens[ STATUS_REACTION ] ) );
-				ParserUtils.add( targetChebiId, incomingsMap, new Relation( type, sourceChebiId.intValue(), tokens[ STATUS_REACTION ] ) );
+				ParserUtils.add( sourceChebiId, outgoingsMap, new Relation( type, targetChebiId.toString(), tokens[ STATUS_REACTION ] ) );
+				ParserUtils.add( targetChebiId, incomingsMap, new Relation( type, sourceChebiId.toString(), tokens[ STATUS_REACTION ] ) );
 			}
 		}
 

@@ -594,7 +594,7 @@ public class ChebiEntityTest
 	@Test
 	public void getOutgoingsExisting() throws IOException, ParseException
 	{
-		Assert.assertTrue( existing.getOutgoings().contains( new Relation( Type.is_a, 17634, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( existing.getOutgoings().contains( new Relation( Type.is_a, "CHEBI:17634", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -604,7 +604,7 @@ public class ChebiEntityTest
 	@Test
 	public void getOutgoingsSecondary() throws IOException, ParseException
 	{
-		Assert.assertTrue( secondary.getOutgoings().contains( new Relation( Type.has_role, 48360, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( secondary.getOutgoings().contains( new Relation( Type.has_role, "48360", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -614,7 +614,7 @@ public class ChebiEntityTest
 	@Test
 	public void getIncomingsExisting() throws IOException, ParseException
 	{
-		Assert.assertTrue( existing.getIncomings().contains( new Relation( Type.has_functional_parent, 15866, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( existing.getIncomings().contains( new Relation( Type.has_functional_parent, "15866", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -624,7 +624,7 @@ public class ChebiEntityTest
 	@Test
 	public void getIncomingsSecondary() throws IOException, ParseException
 	{
-		Assert.assertTrue( secondary.getIncomings().contains( new Relation( Type.is_conjugate_acid_of, 29412, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( secondary.getIncomings().contains( new Relation( Type.is_conjugate_acid_of, "CHEBI:29412", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

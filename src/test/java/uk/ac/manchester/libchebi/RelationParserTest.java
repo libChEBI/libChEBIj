@@ -106,7 +106,7 @@ public class RelationParserTest
 	public void getOutgoings() throws IOException, ParseException
 	{
 		final int id = 4167;
-		Assert.assertTrue( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 17634, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, "17634", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class RelationParserTest
 	public void getOutgoingsTypeNegative() throws IOException, ParseException
 	{
 		final int id = 4167;
-		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_conjugate_acid_of, 17634, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_conjugate_acid_of, "CHEBI:17634", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class RelationParserTest
 	public void getOutgoingsTargetChebiIdNegative() throws IOException, ParseException
 	{
 		final int id = 4167;
-		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 1111, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, "1111", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class RelationParserTest
 	public void getOutgoingsStatusNegative() throws IOException, ParseException
 	{
 		final int id = 4167;
-		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, 17634, "ZZZ" ) ) ); //$NON-NLS-1$
+		Assert.assertFalse( RelationParser.getInstance().getOutgoings( id ).contains( new Relation( Type.is_a, "CHEBI:17634", "ZZZ" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -154,6 +154,6 @@ public class RelationParserTest
 	public void getIncomings() throws IOException, ParseException
 	{
 		final int id = 4167;
-		Assert.assertTrue( RelationParser.getInstance().getIncomings( id ).contains( new Relation( Type.has_functional_parent, 15866, "C" ) ) ); //$NON-NLS-1$
+		Assert.assertTrue( RelationParser.getInstance().getIncomings( id ).contains( new Relation( Type.has_functional_parent, "CHEBI:15866", "C" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 }
