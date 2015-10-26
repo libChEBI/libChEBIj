@@ -16,7 +16,7 @@ class Structure
 	 * 
 	 * @author neilswainston
 	 */
-	public static enum Type
+	static enum Type
 	{
 		InChIKey, mol, SMILES
 	}
