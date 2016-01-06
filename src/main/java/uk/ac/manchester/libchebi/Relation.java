@@ -90,7 +90,7 @@ public class Relation
 	 * @param targetChebiId
 	 * @param status
 	 */
-	public Relation( final Type type, final String targetChebiId, final String status )
+	Relation( final Type type, final String targetChebiId, final String status )
 	{
 		assert type != null;
 		assert status != null;
