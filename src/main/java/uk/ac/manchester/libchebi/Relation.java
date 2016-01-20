@@ -16,7 +16,7 @@ public class Relation
 	 * 
 	 * @author neilswainston
 	 */
-	static enum Type
+	public static enum Type
 	{
 		/**
 		 * 
