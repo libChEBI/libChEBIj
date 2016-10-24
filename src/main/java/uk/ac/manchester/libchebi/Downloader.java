@@ -35,8 +35,9 @@ class Downloader
 	/**
 	 * 
 	 */
-	private final File destination;
-
+	public final File destination;
+	
+	
 	/**
 	 * 
 	 * @return singleton Downloader

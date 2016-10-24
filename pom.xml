@@ -4,18 +4,18 @@
   <artifactId>libChEBIj</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
-  
+
   <name>libChEBIj</name>
   <description>libChEBIj</description>
   <url>https://github.com/libChEBI/libChEBIj</url>
-  
+
   <licenses>
     <license>
       <name>MIT License</name>
       <url>http://www.opensource.org/licenses/mit-license.php</url>
     </license>
   </licenses>
-  
+
   <scm>
     <url>https://github.com/libChEBI/libChEBIj</url>
     <connection>scm:git:https://github.com/libChEBI/libChEBIj.git</connection>
@@ -30,16 +30,16 @@
       <id>neilswainston</id>
     </developer>
   </developers>
-  
+
   <organization>
-  	<name>SYNBIOCHEM</name>
-  	<url>http://synbiochem.co.uk</url>
+    <name>SYNBIOCHEM</name>
+    <url>http://synbiochem.co.uk</url>
   </organization>
-  
+
   <properties>
-  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  
+
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
@@ -50,7 +50,7 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
-  
+
   <build>
     <plugins>
       <plugin>
@@ -114,12 +114,23 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <dependencies>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.12</version>
-  	</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>6.2.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser -->
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>6.2.1</version>
+    </dependency>
   </dependencies>
 </project>

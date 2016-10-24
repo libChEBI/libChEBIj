@@ -595,4 +595,52 @@ public class ChebiEntity
 			System.out.println( name.getName() + "\t" + name.getSource() + "\t" + name.getLanguage() ); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
+
+	@Override
+	public int hashCode() {
+		
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(allIds);
+		result = prime * result + id;
+		System.out.println("The hash of the Entity with ID " +  id + " is " + result);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+		{			
+			return true;
+		}
+		if (obj == null)
+		{
+			System.out.println("Compared Object was null");
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			System.out.println("Compared Object had a different class");
+			return false;
+		}
+		ChebiEntity other = (ChebiEntity) obj;
+		try{
+			if (!Arrays.equals(getAllIds(), other.getAllIds()))
+			{			
+				return false;
+			}
+		}
+		catch(ParseException | IOException e)
+		{
+			return false;
+		}
+		if (id != other.id)
+		{
+			System.out.println("Compared Object had a different id");
+			return false;
+		}
+		return true;
+	}
+	
+	
 }
