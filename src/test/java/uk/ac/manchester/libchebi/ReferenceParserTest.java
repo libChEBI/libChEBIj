@@ -120,7 +120,7 @@ public class ReferenceParserTest
 	public void getReferencesThreeTokens() throws IOException
 	{
 		final int id = 8;
-		final Reference reference = new Reference( "49658669", "PubChem" ); //$NON-NLS-1$ //$NON-NLS-2$
+		final Reference reference = new Reference( "SID: 49658669", "PubChem" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertTrue( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
 
@@ -144,7 +144,7 @@ public class ReferenceParserTest
 	public void getReferencesThreeTokensNegativeReferenceDbName() throws IOException
 	{
 		final int id = 8;
-		final Reference reference = new Reference( "49658669", "Random db name" ); //$NON-NLS-1$ //$NON-NLS-2$
+		final Reference reference = new Reference( "SID: 49658669", "Random db name" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertFalse( ReferenceParser.getInstance().getReferences( new int[] { id } ).contains( reference ) );
 	}
 }
