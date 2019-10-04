@@ -25,9 +25,9 @@ public class NamesParserTest
 	@Test
 	public void getNamesSize() throws IOException, ParseException
 	{
-		final int id = 14;
-		final int size = 5;
-		Assert.assertTrue( size < NamesParser.getInstance().getNames( id ).size() );
+		final int id = 15393;
+		final int size = 12;
+		Assert.assertTrue( size >= NamesParser.getInstance().getNames( id ).size() );
 	}
 
 	/**

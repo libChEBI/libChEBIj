@@ -65,7 +65,7 @@ public class CommentsParserTest
 	public void getComments() throws IOException, ParseException
 	{
 		final int id = 5407;
-		final Comment comment = new Comment( "DatabaseAccession", "DatabaseAccession", "Z stereomer", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		final Comment comment = new Comment( "99025", "DatabaseAccession", "Z stereomer", ParserUtils.parseDate( "2006-09-01" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		Assert.assertTrue( CommentsParser.getInstance().getComments( id ).contains( comment ) );
 	}
 

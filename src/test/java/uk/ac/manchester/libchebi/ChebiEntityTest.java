@@ -174,7 +174,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCommentsExisting() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( "CHEBI:29044" ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+		Assert.assertTrue( new ChebiEntity( "CHEBI:29044" ).getComments().contains( new Comment( "29044", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCommentsSecondary() throws IOException, ParseException, ChebiException
 	{
-		Assert.assertTrue( new ChebiEntity( "11505" ).getComments().contains( new Comment( "General", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+		Assert.assertTrue( new ChebiEntity( "11505" ).getComments().contains( new Comment( "29044", "General", "The substituent name '3-oxoprop-2-enyl' is incorrect but is used in various databases.", ParserUtils.parseDate( "2005-03-18" ) ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	}
 
 	/**
@@ -574,7 +574,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCompoundOriginsExisting() throws IOException, ParseException
 	{
-		Assert.assertTrue( existing.getCompoundOrigins().contains( new CompoundOrigin( "Homo sapiens", "NCBI:9606", null, null, null, null, "DOI", "10.1038/nbt.2488", null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( existing.getCompoundOrigins().contains( new CompoundOrigin( "Homo sapiens", "NCBI:txid9606", null, null, null, null, "DOI", "10.1038/nbt.2488", null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	}
 
 	/**
@@ -584,7 +584,7 @@ public class ChebiEntityTest
 	@Test
 	public void getCompoundOriginsSecondary() throws IOException, ParseException
 	{
-		Assert.assertTrue( secondary.getCompoundOrigins().contains( new CompoundOrigin( "Homo sapiens", "NCBI:9606", null, null, null, null, "DOI", "10.1038/nbt.2488", null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		Assert.assertTrue( secondary.getCompoundOrigins().contains( new CompoundOrigin( "Homo sapiens", "NCBI:txid9606", null, null, null, null, "DOI", "10.1038/nbt.2488", null ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	}
 
 	/**
