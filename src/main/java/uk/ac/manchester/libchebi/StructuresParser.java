@@ -274,7 +274,7 @@ class StructuresParser extends Parser
 
 	private static Boolean isDefaultStructure(final String defaultStructure)
 	{
-		return defaultStructure.equalsIgnoreCase("Y") ? true :false;
+		return defaultStructure.equalsIgnoreCase("Y");
 
 	}
 }
