@@ -29,11 +29,6 @@ class RelationParser extends Parser
 	/**
 	 * 
 	 */
-	private final File verticeFile;
-
-	/**
-	 * 
-	 */
 	private List<List<Relation>> outgoings;
 
 	/**
@@ -51,8 +46,7 @@ class RelationParser extends Parser
 		if( parser == null )
 		{
 			final File relationFile = Downloader.getInstance().getFile( "relation.tsv" ); //$NON-NLS-1$
-			final File verticeFile = Downloader.getInstance().getFile( "vertice.tsv" ); //$NON-NLS-1$
-			parser = new RelationParser( relationFile, verticeFile );
+			parser = new RelationParser( relationFile );
 		}
 
 		return parser;
@@ -61,12 +55,10 @@ class RelationParser extends Parser
 	/**
 	 * 
 	 * @param relationFile
-	 * @param verticeFile
 	 */
-	private RelationParser( final File relationFile, final File verticeFile )
+	private RelationParser( final File relationFile)
 	{
 		this.relationFile = relationFile;
-		this.verticeFile = verticeFile;
 	}
 
 	/**
@@ -139,40 +131,29 @@ class RelationParser extends Parser
 	@Override
 	protected void init() throws IOException
 	{
-		final int ID_VERTICE = 0;
-		final int COMPOUND_CHILD_ID_VERTICE = 1;
 
-		// final int ID_REACTION = 0;
-		final int TYPE_REACTION = 1;
-		final int INIT_ID_REACTION = 2;
-		final int FINAL_ID_REACTION = 3;
-		final int STATUS_REACTION = 4;
+		// final int ID_RELATION = 0;
+		final int TYPE_RELATION = 1;
+		final int INIT_ID_RELATION = 2;
+		final int FINAL_ID_RELATION = 3;
+		final int STATUS_RELATION = 4;
 
-		final TreeMap<String,String> verticeMap = new TreeMap<>();
 		final TreeMap<Integer,List<Relation>> outgoingsMap = new TreeMap<>();
 		final TreeMap<Integer,List<Relation>> incomingsMap = new TreeMap<>();
 
-		try ( BufferedReader verticeReader = new BufferedReader( new FileReader( verticeFile ) ); BufferedReader relationReader = new BufferedReader( new FileReader( relationFile ) ) )
+		try (BufferedReader relationReader = new BufferedReader( new FileReader( relationFile ) ) )
 		{
-			String verticeLine = verticeReader.readLine(); // Read header
-
-			while( ( verticeLine = verticeReader.readLine() ) != null )
-			{
-				final String[] tokens = verticeLine.split( "\\t" ); //$NON-NLS-1$
-				verticeMap.put( tokens[ ID_VERTICE ], tokens[ COMPOUND_CHILD_ID_VERTICE ] );
-			}
-
 			// Read relationFile:
 			String reactionLine = relationReader.readLine(); // Read header
 
 			while( ( reactionLine = relationReader.readLine() ) != null )
 			{
 				final String[] tokens = reactionLine.split( "\\t" ); //$NON-NLS-1$
-				final Integer sourceChebiId = Integer.valueOf( verticeMap.get( tokens[ FINAL_ID_REACTION ] ) );
-				final Integer targetChebiId = Integer.valueOf( verticeMap.get( tokens[ INIT_ID_REACTION ] ) );
-				final Relation.Type type = Relation.Type.valueOf( ( tokens[ TYPE_REACTION ] ) );
-				ParserUtils.add( sourceChebiId, outgoingsMap, new Relation( type, targetChebiId.toString(), tokens[ STATUS_REACTION ] ) );
-				ParserUtils.add( targetChebiId, incomingsMap, new Relation( type, sourceChebiId.toString(), tokens[ STATUS_REACTION ] ) );
+				final Integer sourceChebiId = Integer.valueOf( tokens[ FINAL_ID_RELATION ] ) ;
+				final Integer targetChebiId = Integer.valueOf( tokens[ INIT_ID_RELATION ] ) ;
+				final Relation.Type type = Relation.Type.valueOf( ( tokens[ TYPE_RELATION ] ) );
+				ParserUtils.add( sourceChebiId, outgoingsMap, new Relation( type, targetChebiId.toString(), tokens[ STATUS_RELATION ] ) );
+				ParserUtils.add( targetChebiId, incomingsMap, new Relation( type, sourceChebiId.toString(), tokens[ STATUS_RELATION ] ) );
 			}
 		}
 

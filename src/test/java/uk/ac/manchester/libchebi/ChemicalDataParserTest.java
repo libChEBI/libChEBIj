@@ -51,7 +51,7 @@ public class ChemicalDataParserTest
 	@Test
 	public void getFormulae() throws IOException, ParseException
 	{
-		final int id = 1;
+		final int id = 18357;
 		final Formula formula = new Formula( "C8H11NO3", "KEGG COMPOUND" ); //$NON-NLS-1$ //$NON-NLS-2$
 		Assert.assertTrue( ChemicalDataParser.getInstance().getFormulae( id ).contains( formula ) );
 	}

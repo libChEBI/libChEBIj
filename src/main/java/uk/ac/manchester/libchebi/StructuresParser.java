@@ -31,11 +31,6 @@ class StructuresParser extends Parser
 	/**
 	 * 
 	 */
-	private final File defaultStructuresFile;
-
-	/**
-	 * 
-	 */
 	private int[] defaultStructureIds;
 
 	/**
@@ -58,8 +53,7 @@ class StructuresParser extends Parser
 		if( parser == null )
 		{
 			final File structuresFile = Downloader.getInstance().getFile( "structures.csv.gz" ); //$NON-NLS-1$
-			final File defaultStructuresFile = Downloader.getInstance().getFile( "default_structures.tsv" ); //$NON-NLS-1$
-			parser = new StructuresParser( structuresFile, defaultStructuresFile );
+			parser = new StructuresParser( structuresFile );
 		}
 
 		return parser;
@@ -68,12 +62,10 @@ class StructuresParser extends Parser
 	/**
 	 * 
 	 * @param structuresFile
-	 * @param defaultStructuresFile
 	 */
-	private StructuresParser( final File structuresFile, final File defaultStructuresFile )
+	private StructuresParser( final File structuresFile )
 	{
 		this.structuresFile = structuresFile;
-		this.defaultStructuresFile = defaultStructuresFile;
 	}
 
 	/**
@@ -101,6 +93,7 @@ class StructuresParser extends Parser
 		final int STRUCTURE = 2;
 		final int MOL_STRUCTURE = 0;
 		final int MOL_DIMENSION = 2;
+		final int DEFAULT_STRUCTURE = 3;
 		final int ZERO = 0;
 		final String LINE_SEPARATOR = System.getProperty( "line.separator" ); //$NON-NLS-1$
 		final String QUOTES = "\""; //$NON-NLS-1$
@@ -108,7 +101,7 @@ class StructuresParser extends Parser
 		final String COMMA = ","; //$NON-NLS-1$
 
 		final String chebiIdRegexp = "^\\d+\\," + chebiId + "\\,.*"; //$NON-NLS-1$ //$NON-NLS-2$
-		final String molFileEndRegexp = "\",mol,\\dD"; //$NON-NLS-1$
+		final String molFileEndRegexp = "\",mol,\\dD,[Y\\|N],[Y\\|N]$"; //$NON-NLS-1$
 		final StringBuilder structure = new StringBuilder();
 
 		try ( BufferedReader reader = new BufferedReader( new FileReader( structuresFile ) ) )
@@ -121,7 +114,7 @@ class StructuresParser extends Parser
 			{
 				final String[] tokens = line.split( COMMA );
 
-				if( line.matches( chebiIdRegexp ) && Arrays.binarySearch( getDefaultStructureIds(), Integer.parseInt( tokens[ STRUCTURE_ID ] ) ) > -1 )
+				if( line.matches( chebiIdRegexp ) )
 				{
 					inChebiId = true;
 					structure.setLength( ZERO );
@@ -137,15 +130,21 @@ class StructuresParser extends Parser
 				}
 				else if( inChebiId )
 				{
-					if( line.matches( molFileEndRegexp ) )
+					if( line.matches( molFileEndRegexp ) && isDefaultStructure(tokens[DEFAULT_STRUCTURE]))
 					{
 						structure.append( tokens[ MOL_STRUCTURE ].replace( QUOTES, EMPTY_STRING ) );
-						return new Structure( structure.toString(), Structure.Type.mol, parseDimension( tokens[ MOL_DIMENSION ] ) );
+						return new Structure( structure.toString(), Type.mol, parseDimension( tokens[MOL_DIMENSION ] ) );
 					}
-					// else
-					// In Molfile:
-					structure.append( line );
-					structure.append( LINE_SEPARATOR );
+					else if(line.matches( molFileEndRegexp ) && !isDefaultStructure(tokens[DEFAULT_STRUCTURE]))
+					{
+						structure.setLength( ZERO );
+						inChebiId = false;
+					}
+					else
+					{
+						structure.append( line );
+						structure.append( LINE_SEPARATOR );
+					}
 				}
 			}
 		}
@@ -202,7 +201,7 @@ class StructuresParser extends Parser
 		final int STRUCTURE = 2;
 		final int TYPE = 3;
 		final int DIMENSION = 4;
-		final int DEFAULT_TOKENS_LENGTH = 5;
+		final int DEFAULT_TOKENS_LENGTH = 7;
 
 		final String INCHI_KEY = Structure.Type.InChIKey.toString();
 		final String SMILES = Structure.Type.SMILES.toString();
@@ -264,41 +263,6 @@ class StructuresParser extends Parser
 
 	/**
 	 * 
-	 * @return int[]
-	 * @throws IOException
-	 */
-	private int[] getDefaultStructureIds() throws IOException
-	{
-		if( defaultStructureIds == null )
-		{
-			final int STRUCTURE_ID = 1;
-			final Set<Integer> defaultStructureIdsList = new TreeSet<>();
-
-			try ( BufferedReader reader = new BufferedReader( new FileReader( defaultStructuresFile ) ) )
-			{
-				String line = reader.readLine(); // Read header
-
-				while( ( line = reader.readLine() ) != null )
-				{
-					final String[] tokens = line.split( "\t" ); //$NON-NLS-1$
-					defaultStructureIdsList.add( Integer.valueOf( tokens[ STRUCTURE_ID ] ) );
-				}
-
-				defaultStructureIds = new int[ defaultStructureIdsList.size() ];
-				int i = 0;
-
-				for( Integer defaultStructureId : defaultStructureIdsList )
-				{
-					defaultStructureIds[ i++ ] = defaultStructureId.intValue();
-				}
-			}
-		}
-
-		return defaultStructureIds;
-	}
-
-	/**
-	 * 
 	 * @param dimension
 	 * @return int
 	 */
@@ -306,5 +270,11 @@ class StructuresParser extends Parser
 	{
 		final int DIMENSION_CHAR = 0;
 		return dimension.charAt( DIMENSION_CHAR ) - '0';
+	}
+
+	private static Boolean isDefaultStructure(final String defaultStructure)
+	{
+		return defaultStructure.equalsIgnoreCase("Y");
+
 	}
 }
